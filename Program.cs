@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Autofac;
+﻿using Autofac;
 namespace Middleware
 {
     public class Middleware
@@ -7,11 +6,6 @@ namespace Middleware
         private static IContainer Container = null;
         public static void Main(string[] args)
         {
-            // var services = new ServiceCollection();
-            // services.AddSingleton<MiddlewareChainBuilder>();
-            // IServiceProvider provider = services.BuildServiceProvider();
-            // provider.GetRequiredService(typeof(Middleware));
-
             var builder = new ContainerBuilder();
             builder.RegisterType<Has24HourHealthCode>().Named<IMiddleware>("has24HourHealthCode").SingleInstance();
             builder.RegisterType<IsFromHighRiskAreaMiddleware>().Named<IMiddleware>("isFromHighRiskArea").SingleInstance();

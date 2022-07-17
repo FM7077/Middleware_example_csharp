@@ -3,7 +3,6 @@ namespace Middleware
 {
     public class MiddlewareChainBuilder
     {
-        Dictionary<string, IMiddleware> containMiddleware = new Dictionary<string, IMiddleware>();
         public void CreateChain(IContainer container)
         {
             using(var scope = container.BeginLifetimeScope())
